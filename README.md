@@ -11,6 +11,9 @@ This is [iOS7](http://www.apple.com/ios/ios7/) API [bacport](http://en.wikipedia
 ### Why?
 Not all users will update to iOS7 and developer life is hard enaugh :)
 
+### How
+Add project as library, setup `Build Phases`, add `-ObjC` to `Other Linker Flags`
+
 ### Current backports table
 <table>
 
