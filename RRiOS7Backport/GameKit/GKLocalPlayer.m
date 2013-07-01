@@ -59,7 +59,33 @@
 - (void)rr_registerListener:(id <GKLocalPlayerListener>)listener {
     [self.rr_listeners addObject:listener];
     
-    [[GKTurnBasedEventHandler sharedTurnBasedEventHandler] setDelegate: self];
+    if( ![[GKTurnBasedEventHandler sharedTurnBasedEventHandler].delegate isEqual:self] ){
+        [[GKTurnBasedEventHandler sharedTurnBasedEventHandler] setDelegate: self];
+        
+        __weak GKLocalPlayer *weakSelf = self;
+        [[GKMatchmaker sharedMatchmaker] setInviteHandler: ^(GKInvite *acceptedInvite, NSArray *playersToInvite) {
+            GKLocalPlayer *strongSelf = weakSelf;
+            
+            // acceptedInvite
+            if( acceptedInvite ){
+                for( id listener in [[strongSelf.rr_listeners allObjects] reverseObjectEnumerator] ){
+                    if( [listener respondsToSelector:@selector(player:didAcceptInvite:)] ){
+                        [listener player:strongSelf didAcceptInvite:acceptedInvite];
+                    }
+                }
+            }
+            
+            // playersToInvite
+            if( playersToInvite.count ){
+                for( id listener in [[strongSelf.rr_listeners allObjects] reverseObjectEnumerator] ){
+                    if( [listener respondsToSelector:@selector(player:didRequestMatchWithPlayers:)] ){
+                        [listener player:strongSelf didRequestMatchWithPlayers:playersToInvite];
+                    }
+                }
+            }
+            
+        }];
+    }
 }
 
 
@@ -95,7 +121,7 @@
 
 - (void)rr_handleInviteFromGameCenter:(NSArray *)playersToInvite {
 
-    for( id listener in [self.rr_listeners objectEnumerator] ){
+    for( id listener in [[self.rr_listeners allObjects] reverseObjectEnumerator] ){
         if( [listener respondsToSelector:@selector(player:didRequestMatchWithPlayers:)] ){
             [listener player:self didRequestMatchWithPlayers:playersToInvite];
         }
@@ -106,7 +132,7 @@
 
 - (void)rr_handleTurnEventForMatch:(GKTurnBasedMatch *)match didBecomeActive:(BOOL)didBecomeActive {
 
-    for( id listener in [self.rr_listeners objectEnumerator] ){
+    for( id listener in [[self.rr_listeners allObjects] reverseObjectEnumerator] ){
         if( [listener respondsToSelector:@selector(player:receivedTurnEventForMatch:didBecomeActive:)] ){
             // is player self or remote player?
             [listener player:self receivedTurnEventForMatch:match didBecomeActive:didBecomeActive];
@@ -123,7 +149,7 @@
 
 - (void)rr_handleMatchEnded:(GKTurnBasedMatch *)match {
     
-    for( id listener in [self.rr_listeners objectEnumerator] ){
+    for( id listener in [[self.rr_listeners allObjects] reverseObjectEnumerator] ){
         if( [listener respondsToSelector:@selector(player:matchEnded:)] ){
             [listener player:self matchEnded:match];
         }

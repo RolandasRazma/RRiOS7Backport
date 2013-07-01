@@ -32,13 +32,24 @@
 
 #ifndef __IPHONE_7_0
 
-@protocol GKLocalPlayerListener <NSObject>
+@protocol GKInviteEventListener
+@optional
+
+- (void)player:(GKPlayer *)player didAcceptInvite:(GKInvite *)invite;
+- (void)player:(GKPlayer *)player didRequestMatchWithPlayers:(NSArray *)playerIDsToInvite;
+
+@end
+
+@protocol GKTurnBasedEventListener
 @optional
 
 - (void)player:(GKPlayer *)player didRequestMatchWithPlayers:(NSArray *)playerIDsToInvite;
 - (void)player:(GKPlayer *)player receivedTurnEventForMatch:(GKTurnBasedMatch *)match didBecomeActive:(BOOL)didBecomeActive;
 - (void)player:(GKPlayer *)player matchEnded:(GKTurnBasedMatch *)match;
 
+@end
+
+@protocol GKLocalPlayerListener <GKInviteEventListener, GKTurnBasedEventListener>
 @end
 
 #endif
