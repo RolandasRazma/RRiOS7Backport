@@ -5,27 +5,27 @@
 //  Created by Rolandas Razma on 26/06/2013.
 //  Copyright (c) 2013 Rolandas Razma.
 //
-//  Base64 encodin/decoding from https://github.com/ekscrypto/Base64/ (Public Domain)
+//  Base64 encodin/decoding based on Nick Lockwood https://github.com/nicklockwood/Base64
 //
-//  This code is distributed under the terms and conditions of the MIT license.
+//  This code is distributed under the permissive zlib License
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+//  This software is provided 'as-is', without any express or implied
+//  warranty.  In no event will the authors be held liable for any damages
+//  arising from the use of this software.
 //
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
+//  Permission is granted to anyone to use this software for any purpose,
+//  including commercial applications, and to alter it and redistribute it
+//  freely, subject to the following restrictions:
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
+//  1. The origin of this software must not be misrepresented; you must not
+//  claim that you wrote the original software. If you use this software
+//  in a product, an acknowledgment in the product documentation would be
+//  appreciated but is not required.
+//
+//  2. Altered source versions must be plainly marked as such, and must not be
+//  misrepresented as being the original software.
+//
+//  3. This notice may not be removed or altered from any source distribution.
 //
 
 #import "NSData.h"
@@ -50,253 +50,137 @@
 
 
 - (id)rr_initWithBase64EncodedString:(NSString *)base64String options:(NSDataBase64DecodingOptions)options {
-    return [self initWithBase64EncodedData: [base64String dataUsingEncoding:NSASCIIStringEncoding]
+    return [self initWithBase64EncodedData: [base64String dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES]
                                    options: options];
 }
 
 
 - (NSString *)rr_base64EncodedStringWithOptions:(NSDataBase64EncodingOptions)options {
-    NSData *base64EncodedData = [self base64EncodedDataWithOptions:options];
-    
-    if( base64EncodedData ){
-        NSString *string = [[NSString alloc] initWithData:base64EncodedData encoding:NSASCIIStringEncoding];
-        NSString *endLine= @"\r\n";
-        NSInteger lineLength = -1;
-        
-        // line length
-        if( (options & NSDataBase64Encoding64CharacterLineLength) && !(options & NSDataBase64Encoding76CharacterLineLength) ){
-            lineLength = 64;
-        }else if( (options & NSDataBase64Encoding76CharacterLineLength) && !(options & NSDataBase64Encoding64CharacterLineLength) ){
-            lineLength = 76;
-        }
-        
-        // end line
-        if( (options & NSDataBase64EncodingEndLineWithCarriageReturn) && !(options & NSDataBase64EncodingEndLineWithLineFeed) ){
-            endLine = @"\r";
-        }else if( (options & NSDataBase64EncodingEndLineWithLineFeed) && !(options & NSDataBase64EncodingEndLineWithCarriageReturn) ){
-            endLine = @"\n";
-        }
-        
-        if( lineLength > 0 ){    
-            NSMutableString *mutableString = [string mutableCopy];
-            
-            for( NSUInteger i=lineLength; i<mutableString.length; i+=lineLength ){
-                [mutableString insertString:endLine atIndex:i];
-                i += endLine.length;
-            }
-            
-            return [mutableString copy];
-        }
-
-        return string;
-    }else{
-        return nil;
-    }
+    return [[NSString alloc] initWithData: [self base64EncodedDataWithOptions:options]
+                                 encoding: NSASCIIStringEncoding];
 }
 
 
 - (id)rr_initWithBase64EncodedData:(NSData *)base64Data options:(NSDataBase64DecodingOptions)options {
-
-    // Strip
-    NSMutableData *mutableBase64Data = [base64Data mutableCopy];
     
-    void (^stripDataFromData)(NSData *, NSMutableData **) = ^(NSData *dataToStrip, NSMutableData **fromData) {
-        NSRange range;
-        
-        do {
-            range = [*fromData rangeOfData: dataToStrip
-                                   options: NSDataSearchBackwards
-                                     range: NSMakeRange(0, [*fromData length])];
-            
-            if( range.location != NSNotFound ){
-                [*fromData replaceBytesInRange:range
-                                     withBytes:NULL
-                                        length:0];
-            }
-        }while ( range.location != NSNotFound );
+    const char lookup[] = {
+        99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99,
+        99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99,
+        99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 62, 99, 99, 99, 63,
+        52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 99, 99, 99, 99, 99, 99,
+        99,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14,
+        15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 99, 99, 99, 99, 99,
+        99, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+        41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 99, 99, 99, 99, 99
     };
     
-    stripDataFromData([@"="  dataUsingEncoding:NSASCIIStringEncoding], &mutableBase64Data);
-    stripDataFromData([@"\r" dataUsingEncoding:NSASCIIStringEncoding], &mutableBase64Data);
-    stripDataFromData([@"\n" dataUsingEncoding:NSASCIIStringEncoding], &mutableBase64Data);
-
-    base64Data = (NSData *)mutableBase64Data;
+    NSUInteger inputLength = [base64Data length];
+    const unsigned char *inputBytes = [base64Data bytes];
     
+    NSUInteger maxOutputLength = (inputLength /4 +1) *3;
+    NSMutableData *outputData  = [NSMutableData dataWithLength:maxOutputLength];
+    unsigned char *outputBytes = (unsigned char *)[outputData mutableBytes];
     
-    // Decode
-    NSData *data = nil;
-    unsigned char *decodedBytes = NULL;
-    @try {
-        #define __ 255
-        static char decodingTable[256] = {
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0x00 - 0x0F
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0x10 - 0x1F
-            __,__,__,__, __,__,__,__, __,__,__,62, __,__,__,63,  // 0x20 - 0x2F
-            52,53,54,55, 56,57,58,59, 60,61,__,__, __, 0,__,__,  // 0x30 - 0x3F
-            __, 0, 1, 2,  3, 4, 5, 6,  7, 8, 9,10, 11,12,13,14,  // 0x40 - 0x4F
-            15,16,17,18, 19,20,21,22, 23,24,25,__, __,__,__,__,  // 0x50 - 0x5F
-            __,26,27,28, 29,30,31,32, 33,34,35,36, 37,38,39,40,  // 0x60 - 0x6F
-            41,42,43,44, 45,46,47,48, 49,50,51,__, __,__,__,__,  // 0x70 - 0x7F
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0x80 - 0x8F
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0x90 - 0x9F
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0xA0 - 0xAF
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0xB0 - 0xBF
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0xC0 - 0xCF
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0xD0 - 0xDF
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0xE0 - 0xEF
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0xF0 - 0xFF
-        };
-        
-        unsigned char *encodedBytes = (unsigned char *)[base64Data bytes];
-        
-        NSUInteger encodedLength = [base64Data length];
-        NSUInteger encodedBlocks = (encodedLength +3) >> 2;
-        NSUInteger expectedDataLength = encodedBlocks *3;
-        
-        unsigned char decodingBlock[4];
-        
-        decodedBytes = malloc(expectedDataLength);
-        if( decodedBytes != NULL ) {
-            
-            NSUInteger i = 0;
-            NSUInteger j = 0;
-            NSUInteger k = 0;
-            unsigned char c;
-            while( i < encodedLength ) {
-                c = decodingTable[encodedBytes[i]];
-                i++;
-
-                if( c != __ ) {
-                    decodingBlock[j] = c;
-                    j++;
-                    
-                    if( j == 4 ) {
-                        decodedBytes[k]   = (unsigned char)((decodingBlock[0] << 2) | (decodingBlock[1] >> 4));
-                        decodedBytes[k+1] = (unsigned char)((decodingBlock[1] << 4) | (decodingBlock[2] >> 2));
-                        decodedBytes[k+2] = (unsigned char)((decodingBlock[2] << 6) | (decodingBlock[3]));
-                        
-                        j  = 0;
-                        k += 3;
-                    }
-                }
+    int accumulator = 0;
+    long long outputLength = 0;
+    unsigned char accumulated[] = {0, 0, 0, 0};
+    for ( long long i = 0; i < inputLength; i++ ) {
+        unsigned char decoded = lookup[inputBytes[i] & 0x7F];
+        if ( decoded != 99 ) {
+            accumulated[accumulator] = decoded;
+            if (accumulator == 3)
+            {
+                outputBytes[outputLength++] = (unsigned char)(accumulated[0] << 2) | (accumulated[1] >> 4);
+                outputBytes[outputLength++] = (unsigned char)(accumulated[1] << 4) | (accumulated[2] >> 2);
+                outputBytes[outputLength++] = (unsigned char)(accumulated[2] << 6) | accumulated[3];
             }
-            
-            // Process left over bytes, if any
-            if( j == 3 ) {
-                decodedBytes[k]   = (unsigned char)((decodingBlock[0] << 2) | (decodingBlock[1] >> 4));
-                decodedBytes[k+1] = (unsigned char)((decodingBlock[1] << 4) | (decodingBlock[2] >> 2));
-                k += 2;
-            } else if( j == 2 ) {
-                decodedBytes[k] = (unsigned char)((decodingBlock[0] << 2) | (decodingBlock[1] >> 4));
-                k += 1;
-            }
-            data = [[NSData alloc] initWithBytes:decodedBytes length:k];
+            accumulator = (accumulator + 1) % 4;
         }
     }
-    @catch (NSException *exception) {
-        data = nil;
-        NSLog(@"WARNING: error occured while decoding base 32 string: %@", exception);
-    }
-    @finally {
-        if( decodedBytes != NULL ) {
-            free( decodedBytes );
-        }
-    }
-    
-    return data;
 
+    //handle left-over data
+    if (accumulator > 0) outputBytes[outputLength]   = (unsigned char)(accumulated[0] << 2) | (accumulated[1] >> 4);
+    if (accumulator > 1) outputBytes[++outputLength] = (unsigned char)(accumulated[1] << 4) | (accumulated[2] >> 2);
+    if (accumulator > 2) outputLength++;
+
+    //truncate data to match actual output length
+    outputData.length = outputLength;
+    
+    return ((outputLength>0)?[NSData dataWithData:outputData]:nil);
 }
 
 
 - (NSData *)rr_base64EncodedDataWithOptions:(NSDataBase64EncodingOptions)options {
+    NSUInteger wrapWidth = 0;
     
-    NSData *base64EncodedData = nil;
-    unsigned char *encodingBytes = NULL;
-    @try {
-        static char encodingTable[64] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-        static NSUInteger paddingTable[] = {0,2,1};
-        //                 Table 1: The Base 64 Alphabet
-        //
-        //    Value Encoding  Value Encoding  Value Encoding  Value Encoding
-        //        0 A            17 R            34 i            51 z
-        //        1 B            18 S            35 j            52 0
-        //        2 C            19 T            36 k            53 1
-        //        3 D            20 U            37 l            54 2
-        //        4 E            21 V            38 m            55 3
-        //        5 F            22 W            39 n            56 4
-        //        6 G            23 X            40 o            57 5
-        //        7 H            24 Y            41 p            58 6
-        //        8 I            25 Z            42 q            59 7
-        //        9 J            26 a            43 r            60 8
-        //       10 K            27 b            44 s            61 9
-        //       11 L            28 c            45 t            62 +
-        //       12 M            29 d            46 u            63 /
-        //       13 N            30 e            47 v
-        //       14 O            31 f            48 w         (pad) =
-        //       15 P            32 g            49 x
-        //       16 Q            33 h            50 y
-        
-        NSUInteger dataLength = [self length];
-        NSUInteger encodedBlocks = (dataLength *8) /24;
-        NSUInteger padding = paddingTable[dataLength % 3];
-        if( padding > 0 ) encodedBlocks++;
-        NSUInteger encodedLength = encodedBlocks * 4;
-        
-        encodingBytes = malloc(encodedLength);
-        if( encodingBytes != NULL ) {
-            NSUInteger rawBytesToProcess = dataLength;
-            NSUInteger rawBaseIndex = 0;
-            NSUInteger encodingBaseIndex = 0;
-            unsigned char *rawBytes = (unsigned char *)[self bytes];
-            unsigned char rawByte1, rawByte2, rawByte3;
-            while( rawBytesToProcess >= 3 ) {
-                rawByte1 = rawBytes[rawBaseIndex];
-                rawByte2 = rawBytes[rawBaseIndex+1];
-                rawByte3 = rawBytes[rawBaseIndex+2];
-                encodingBytes[encodingBaseIndex]   = encodingTable[((rawByte1 >> 2) & 0x3F)];
-                encodingBytes[encodingBaseIndex+1] = encodingTable[((rawByte1 << 4) & 0x30) | ((rawByte2 >> 4) & 0x0F)];
-                encodingBytes[encodingBaseIndex+2] = encodingTable[((rawByte2 << 2) & 0x3C) | ((rawByte3 >> 6) & 0x03)];
-                encodingBytes[encodingBaseIndex+3] = encodingTable[(rawByte3 & 0x3F)];
-                
-                rawBaseIndex += 3;
-                encodingBaseIndex += 4;
-                rawBytesToProcess -= 3;
-            }
-            
-            rawByte2 = 0;
-            switch( dataLength -rawBaseIndex ) {
-                case 2:
-                    rawByte2 = rawBytes[rawBaseIndex+1];
-                case 1:
-                    rawByte1 = rawBytes[rawBaseIndex];
-                    encodingBytes[encodingBaseIndex]   = encodingTable[((rawByte1 >> 2) & 0x3F)];
-                    encodingBytes[encodingBaseIndex+1] = encodingTable[((rawByte1 << 4) & 0x30) | ((rawByte2 >> 4) & 0x0F)];
-                    encodingBytes[encodingBaseIndex+2] = encodingTable[((rawByte2 << 2) & 0x3C)];
-                    // we can skip rawByte3 since we have a partial block it would always be 0
-                    break;
-            }
-            
-            // compute location from where to begin inserting padding, it may overwrite some bytes from the partial block encoding
-            // if their value was 0 (cases 1-2).
-            encodingBaseIndex = encodedLength - padding;
-            while( padding-- > 0 ) {
-                encodingBytes[encodingBaseIndex++] = '=';
-            }
-
-            base64EncodedData = [NSData dataWithBytes:encodingBytes length:encodedLength];
-        }
+    if( (options & NSDataBase64Encoding64CharacterLineLength) && !(options & NSDataBase64Encoding76CharacterLineLength) ){
+        wrapWidth = 64;
+    }else if( (options & NSDataBase64Encoding76CharacterLineLength) && !(options & NSDataBase64Encoding64CharacterLineLength) ){
+        wrapWidth = 76;
     }
-    @catch (NSException *exception) {
-        base64EncodedData = nil;
-        NSLog(@"WARNING: error occured while tring to encode base 32 data: %@", exception);
+    
+    if( wrapWidth > 0 && !(options & NSDataBase64EncodingEndLineWithCarriageReturn) && !(options & NSDataBase64EncodingEndLineWithLineFeed) ){
+        options = options | NSDataBase64EncodingEndLineWithCarriageReturn | NSDataBase64EncodingEndLineWithLineFeed;
     }
-    @finally {
-        if( encodingBytes != NULL ) {
-            free( encodingBytes );
+    
+    
+    //ensure wrapWidth is a multiple of 4
+    wrapWidth = (wrapWidth / 4) *4;
+    
+    const char lookup[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    
+    NSUInteger inputLength          = [self length];
+    const unsigned char *inputBytes = [self bytes];
+    
+    NSUInteger maxOutputLength = (inputLength /3 +1) *4;
+    maxOutputLength += ((wrapWidth>0)?(maxOutputLength /wrapWidth) *2:0);
+    
+    unsigned char *outputBytes = (unsigned char *)malloc(maxOutputLength);
+    
+    long long i;
+    NSUInteger outputLength = 0;
+    for ( i = 0; i < inputLength -2; i += 3 ){
+        outputBytes[outputLength++] = lookup[(inputBytes[i]      & 0xFC) >> 2];
+        outputBytes[outputLength++] = lookup[((inputBytes[i]     & 0x03) << 4) | ((inputBytes[i + 1] & 0xF0) >> 4)];
+        outputBytes[outputLength++] = lookup[((inputBytes[i + 1] & 0x0F) << 2) | ((inputBytes[i + 2] & 0xC0) >> 6)];
+        outputBytes[outputLength++] = lookup[inputBytes[i + 2]   & 0x3F];
+        
+        //add line break
+        if ( wrapWidth && (outputLength +2) % (wrapWidth +2) == 0 ) {
+            if( options & NSDataBase64EncodingEndLineWithCarriageReturn ){
+                outputBytes[outputLength++] = '\r';
+            }
+            if( options & NSDataBase64EncodingEndLineWithLineFeed ){
+                outputBytes[outputLength++] = '\n';
+            }
         }
     }
     
-    return base64EncodedData;
+    //handle left-over data
+    if ( i == inputLength -2 ) {
+        // = terminator
+        outputBytes[outputLength++] = lookup[(inputBytes[i]     & 0xFC) >> 2];
+        outputBytes[outputLength++] = lookup[((inputBytes[i]    & 0x03) << 4) | ((inputBytes[i + 1] & 0xF0) >> 4)];
+        outputBytes[outputLength++] = lookup[(inputBytes[i + 1] & 0x0F) << 2];
+        outputBytes[outputLength++] =   '=';
+    } else if ( i == inputLength -1 ) {
+        // == terminator
+        outputBytes[outputLength++] = lookup[(inputBytes[i] & 0xFC) >> 2];
+        outputBytes[outputLength++] = lookup[(inputBytes[i] & 0x03) << 4];
+        outputBytes[outputLength++] = '=';
+        outputBytes[outputLength++] = '=';
+    }
+    
+    if ( outputLength >= 4 ) {
+        //truncate data to match actual output length
+        outputBytes = realloc(outputBytes, outputLength);
+        
+        return [[NSData alloc] initWithBytesNoCopy:outputBytes length:outputLength freeWhenDone:YES];
+    } else if ( outputBytes ){
+        free(outputBytes);
+    }
+    
+    return nil;
 }
 
 

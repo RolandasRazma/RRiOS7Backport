@@ -54,7 +54,7 @@ Add project as library, setup `Build Phases`, add `-ObjC` to `Other Linker Flags
   </tr>
   <tr>
     <td><a href="">-[NSData initWithBase64EncodedString:options:]</a></td>
-    <td style="background-color: yellow;">In progress</td>
+    <td style="background-color: green;">Done.</td>
   </tr>
   <tr>
     <td><a href="">-[NSData base64EncodedStringWithOptions:]</a></td>
@@ -62,7 +62,7 @@ Add project as library, setup `Build Phases`, add `-ObjC` to `Other Linker Flags
   </tr>
   <tr>
     <td><a href="">-[NSData initWithBase64EncodedData:options:]</a></td>
-    <td style="background-color: yellow;">In progress</td>
+    <td style="background-color: green;">Done.</td>
   </tr>
   <tr>
     <td><a href="">-[NSData base64EncodedDataWithOptions:]</a></td>

@@ -179,16 +179,16 @@
     
 
     // Try decode
-/* need to fix this
     NSData *decodedBase64 = [[NSData alloc] initWithBase64EncodedString:base64EncodedString options:0];
     STAssertNotNil(decodedBase64, @"failed -[NSData initWithBase64EncodedString:options:]");
+
     STAssertEqualObjects(decodedBase64, testData, @"Decoded data not equal encoded one");
 
     NSData *decodedBase64d = [[NSData alloc] initWithBase64EncodedData:testEncodedData options:0];
     STAssertNotNil(decodedBase64d, @"failed -[NSData initWithBase64EncodedString:options:]");
     STAssertEqualObjects(decodedBase64d, testData, @"Decoded data not equal encoded one");
     STAssertEqualObjects(decodedBase64d, decodedBase64, @"Decoded data not equal encoded one");
-*/
+
 }
 
 
