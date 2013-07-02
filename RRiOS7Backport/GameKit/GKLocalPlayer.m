@@ -64,26 +64,27 @@
         
         __weak GKLocalPlayer *weakSelf = self;
         [[GKMatchmaker sharedMatchmaker] setInviteHandler: ^(GKInvite *acceptedInvite, NSArray *playersToInvite) {
-            GKLocalPlayer *strongSelf = weakSelf;
-            
-            // acceptedInvite
-            if( acceptedInvite ){
-                for( id listener in [[strongSelf.rr_listeners allObjects] reverseObjectEnumerator] ){
-                    if( [listener respondsToSelector:@selector(player:didAcceptInvite:)] ){
-                        [listener player:strongSelf didAcceptInvite:acceptedInvite];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                GKLocalPlayer *strongSelf = weakSelf;
+                
+                // acceptedInvite
+                if( acceptedInvite ){
+                    for( id listener in [[strongSelf.rr_listeners allObjects] reverseObjectEnumerator] ){
+                        if( [listener respondsToSelector:@selector(player:didAcceptInvite:)] ){
+                            [listener player:strongSelf didAcceptInvite:acceptedInvite];
+                        }
                     }
                 }
-            }
-            
-            // playersToInvite
-            if( playersToInvite.count ){
-                for( id listener in [[strongSelf.rr_listeners allObjects] reverseObjectEnumerator] ){
-                    if( [listener respondsToSelector:@selector(player:didRequestMatchWithPlayers:)] ){
-                        [listener player:strongSelf didRequestMatchWithPlayers:playersToInvite];
+                
+                // playersToInvite
+                if( playersToInvite.count ){
+                    for( id listener in [[strongSelf.rr_listeners allObjects] reverseObjectEnumerator] ){
+                        if( [listener respondsToSelector:@selector(player:didRequestMatchWithPlayers:)] ){
+                            [listener player:strongSelf didRequestMatchWithPlayers:playersToInvite];
+                        }
                     }
                 }
-            }
-            
+            });
         }];
     }
 }
