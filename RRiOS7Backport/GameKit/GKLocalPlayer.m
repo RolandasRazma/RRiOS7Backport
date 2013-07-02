@@ -64,9 +64,9 @@
         
         __weak GKLocalPlayer *weakSelf = self;
         [[GKMatchmaker sharedMatchmaker] setInviteHandler: ^(GKInvite *acceptedInvite, NSArray *playersToInvite) {
+            GKLocalPlayer *strongSelf = weakSelf;
+            
             dispatch_async(dispatch_get_main_queue(), ^{
-                GKLocalPlayer *strongSelf = weakSelf;
-                
                 // acceptedInvite
                 if( acceptedInvite ){
                     for( id listener in [[strongSelf.rr_listeners allObjects] reverseObjectEnumerator] ){
