@@ -1,7 +1,7 @@
 iOS7 Backport
 =============
 
-This is [iOS7](http://www.apple.com/ios/ios7/) API [bacport](http://en.wikipedia.org/wiki/Backporting) to [iOS6](http://www.apple.com/ios/ios6/).
+This is [iOS7](http://www.apple.com/ios/ios7/) API [backport](http://en.wikipedia.org/wiki/Backporting) to [iOS6](http://www.apple.com/ios/ios6/).
 
 ### Goal
 * backport useful features from iOS7 to iOS6 to simplify transition for developers without using any private API.
