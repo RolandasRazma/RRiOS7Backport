@@ -6,7 +6,7 @@ This is [iOS7](http://www.apple.com/ios/ios7/) API [backport](http://en.wikipedi
 ### Goal
 * backport useful features from iOS7 to iOS6 to simplify transition for developers without using any private API.
 * backport should behave 100% same way on iOS6 as on iOS7 from developers and users perspective.  For example it is ok to add implementation of `-[NSTimer setTolerance:]` that does nothing.
-* on iOS7 back ported API shouldn't have any effect on system.
+* on iOS7 back ported API shouldn't have any effect on system - default iOS implementation should be used.
 
 ### Why?
 Not all users will update to iOS7 and developer life is hard enaugh :)
@@ -86,3 +86,6 @@ Add project as library, setup `Build Phases`, add `-ObjC` to `Other Linker Flags
   </tr>
 
 </table>
+
+### ContainerView
+If you supporting iOS5 and want to use Interface Builder's ContainerView, check out [RRContainerView](https://github.com/RolandasRazma/RRContainerView)
