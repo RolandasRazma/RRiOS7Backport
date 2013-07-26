@@ -27,13 +27,25 @@
 //  THE SOFTWARE.
 //
 
+#if !COCOAPODS
+	#define RRiOS7BackportFoundation	1
+	#define RRiOS7BackportUIKit			1
+	#define RRiOS7BackportGameKit		1
+#endif
+
 // Foundation
-#import "NSArray.h"
-#import "NSTimer.h"
-#import "NSData.h"
+#if RRiOS7BackportFoundation
+	#import "NSArray.h"
+	#import "NSTimer.h"
+	#import "NSData.h"
+#endif
 
 // GameKit
-#import "GKLocalPlayer.h"
+#if RRiOS7BackportGameKit
+	#import "GKLocalPlayer.h"
+#endif
 
 // UIKit
-#import "UIView.h"
+#if RRiOS7BackportUIKit
+	#import "UIView.h"
+#endif

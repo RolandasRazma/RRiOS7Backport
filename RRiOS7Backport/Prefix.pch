@@ -29,7 +29,7 @@
 
 #ifdef __OBJC__
     #import <Availability.h>
-    #if !__has_feature(objc_arc)
+    #if !__has_feature(objc_arc) && !COCOAPODS
         #error This library requires automatic reference counting
     #endif
 

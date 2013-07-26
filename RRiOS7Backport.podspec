@@ -14,31 +14,33 @@ Pod::Spec.new do |s|
   	:tag => s.version.to_s
   }
 
+  s.platform            = :ios, '5.0'
+  s.requires_arc        = true
+  s.source_files        = 'RRiOS7Backport/RRiOS7Backport.h'
+  s.prefix_header_file  = 'RRiOS7Backport/Prefix.pch'
+
+  s.subspec 'Core' do |sub|
+    sub.source_files  = 'RRiOS7Backport/RRiOS7Backport.h'
+  end
+
   s.subspec 'Foundation' do |sub|
+    sub.dependency    'RRiOS7Backport/Core'
     sub.source_files  = 'RRiOS7Backport/Foundation/*.{h,m}'
     sub.frameworks    = 'Foundation'
-    sub.libraries     = 'libCommonCrypto'
+    sub.xcconfig      = { 'OTHER_CFLAGS' => '-DRRiOS7BackportFoundation=1' }
   end
 
   s.subspec 'GameKit' do |sub|
+    sub.dependency    'RRiOS7Backport/Core'
     sub.source_files  = 'RRiOS7Backport/GameKit/*.{h,m}'
     sub.frameworks    = 'GameKit'
-  end
+    sub.xcconfig      = { 'OTHER_CFLAGS' => '-DRRiOS7BackportGameKit=1' }
+    end
 
   s.subspec 'UIKit' do |sub|
+    sub.dependency    'RRiOS7Backport/Core'
     sub.source_files  = 'RRiOS7Backport/UIKit/*.{h,m}'
     sub.frameworks    = 'UIKit', 'QuartzCore', 'CoreGraphics'
+    sub.xcconfig      = { 'OTHER_CFLAGS' => '-DRRiOS7BackportUIKit=1' }
   end
-
-  s.subspec 'All' do |all|
-    all.source_files  = 'RRiOS7Backport/RRiOS7Backport.h'
-    all.dependency  'RRiOS7Backport/Foundation'
-    all.dependency  'RRiOS7Backport/GameKit'
-    all.dependency  'RRiOS7Backport/UIKit'
-  end
-
-  s.preferred_dependency = 'All'
-  s.platform            = :ios, '5.0'
-  s.requires_arc        = true
-  s.prefix_header_file  = 'RRiOS7Backport/Prefix.pch'
 end
