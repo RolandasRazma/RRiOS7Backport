@@ -55,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0329609E17A1CA7000AF6C57 /* RRiOS7Backport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRiOS7Backport.h; sourceTree = "<group>"; };
 		F01E1BFF176A0D8400C0C8BE /* NSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArray.h; sourceTree = "<group>"; };
 		F01E1C00176A0D8400C0C8BE /* NSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArray.m; sourceTree = "<group>"; };
 		F0968EA517724DE40066686F /* NSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTimer.h; sourceTree = "<group>"; };
@@ -167,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				F0ADD3C9176A03EF003C4A9A /* Prefix.pch */,
+				0329609E17A1CA7000AF6C57 /* RRiOS7Backport.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
