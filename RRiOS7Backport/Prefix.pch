@@ -37,6 +37,14 @@
 
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
+
+	#import "NSArray.h"
+	#import "NSTimer.h"
+	#import "NSData.h"
+
+	#import "GKLocalPlayer.h"
+
+	#import "UIView.h"
 #endif
 
 
