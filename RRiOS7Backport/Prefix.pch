@@ -29,7 +29,7 @@
 
 #ifdef __OBJC__
     #import <Availability.h>
-    #if !__has_feature(objc_arc)
+    #if !__has_feature(objc_arc) && !COCOAPODS
         #error This library requires automatic reference counting
     #endif
 
@@ -38,13 +38,13 @@
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
 
-    #import "NSArray.h"
-    #import "NSTimer.h"
-    #import "NSData.h"
+	#import "NSArray.h"
+	#import "NSTimer.h"
+	#import "NSData.h"
 
-    #import "GKLocalPlayer.h"
+	#import "GKLocalPlayer.h"
 
-    #import "UIView.h"
+	#import "UIView.h"
 #endif
 
 
