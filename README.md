@@ -88,4 +88,4 @@ Add project as library, setup `Build Phases`, add `-ObjC` to `Other Linker Flags
 </table>
 
 ### ContainerView
-If you supporting iOS5 and want to use Interface Builder's ContainerView, check out [RRContainerView](https://github.com/RolandasRazma/RRContainerView)
+If you supporting iOS5 check out [RRContainerView](https://github.com/RolandasRazma/RRContainerView) and [RRBaseInternationalization](https://github.com/RolandasRazma/RRBaseInternationalization)
