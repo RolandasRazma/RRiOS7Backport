@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:RRiOS7BackportFoundation/RRiOS7BackportFoundation.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:RRiOS7BackportUIKit/RRiOS7BackportUIKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:RRiOS7BackportGameKit/RRiOS7BackportGameKit.xcodeproj">
+   </FileRef>
+</Workspace>

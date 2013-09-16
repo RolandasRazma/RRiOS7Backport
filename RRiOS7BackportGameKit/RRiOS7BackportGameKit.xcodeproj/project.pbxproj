@@ -7,29 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F01E1C01176A0D8400C0C8BE /* NSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F01E1C00176A0D8400C0C8BE /* NSArray.m */; };
-		F0968EA717724DE40066686F /* NSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0968EA617724DE40066686F /* NSTimer.m */; };
-		F0968EA817724DE40066686F /* NSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0968EA617724DE40066686F /* NSTimer.m */; };
 		F0ADD3C6176A03EF003C4A9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ADD3C5176A03EF003C4A9A /* Foundation.framework */; };
-		F0ADD3DA176A04E3003C4A9A /* UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0ADD3D9176A04E3003C4A9A /* UIView.m */; };
 		F0ADD3DC176A0547003C4A9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ADD3DB176A0547003C4A9A /* UIKit.framework */; };
 		F0C7C097177DDFEA00AEB524 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C7C096177DDFEA00AEB524 /* QuartzCore.framework */; };
 		F0C7C099177DDFEF00AEB524 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C7C098177DDFEF00AEB524 /* CoreGraphics.framework */; };
 		F0C7C09A177DE00000AEB524 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C7C098177DDFEF00AEB524 /* CoreGraphics.framework */; };
 		F0C7C09B177DE00400AEB524 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C7C096177DDFEA00AEB524 /* QuartzCore.framework */; };
-		F0C7C09C177DE0E900AEB524 /* libRRiOS7Backport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ADD3C2176A03EF003C4A9A /* libRRiOS7Backport.a */; };
-		F0DB32A1177B1A7500E7610F /* NSData.m in Sources */ = {isa = PBXBuildFile; fileRef = F0DB32A0177B1A7500E7610F /* NSData.m */; };
-		F0DB32A2177B1A7500E7610F /* NSData.m in Sources */ = {isa = PBXBuildFile; fileRef = F0DB32A0177B1A7500E7610F /* NSData.m */; };
+		F0C7C09C177DE0E900AEB524 /* libRRiOS7BackportGameKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ADD3C2176A03EF003C4A9A /* libRRiOS7BackportGameKit.a */; };
 		F0E2FF9317807BBB0070D2B8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0E2FF9217807BBB0070D2B8 /* GameKit.framework */; };
 		F0E2FF9417807BC10070D2B8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0E2FF9217807BBB0070D2B8 /* GameKit.framework */; };
-		F0E2FF9717807BEE0070D2B8 /* GKLocalPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E2FF9617807BEE0070D2B8 /* GKLocalPlayer.m */; };
-		F0E2FF9817807BEE0070D2B8 /* GKLocalPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E2FF9617807BEE0070D2B8 /* GKLocalPlayer.m */; };
 		F0E612CF1771F1A40089DD9D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0E612B21771F08E0089DD9D /* SenTestingKit.framework */; };
 		F0E612D01771F1A40089DD9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ADD3C5176A03EF003C4A9A /* Foundation.framework */; };
 		F0E612D11771F1A40089DD9D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ADD3DB176A0547003C4A9A /* UIKit.framework */; };
 		F0E612D91771F1A40089DD9D /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E612D81771F1A40089DD9D /* Tests.m */; };
-		F0ECE91517720A5000529AC0 /* NSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F01E1C00176A0D8400C0C8BE /* NSArray.m */; };
-		F0ECE91617720A5000529AC0 /* UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0ADD3D9176A04E3003C4A9A /* UIView.m */; };
+		F0F156D317E75A9400FED38A /* GKLocalPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F156D217E75A9400FED38A /* GKLocalPlayer.m */; };
+		F0F156D417E75A9400FED38A /* GKLocalPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F156D217E75A9400FED38A /* GKLocalPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +30,7 @@
 			containerPortal = F0ADD3BA176A03EF003C4A9A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F0ADD3C1176A03EF003C4A9A;
-			remoteInfo = RRiOS7Backport;
+			remoteInfo = RRiOS7BackportGameKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -55,26 +47,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F01E1BFF176A0D8400C0C8BE /* NSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArray.h; sourceTree = "<group>"; };
-		F01E1C00176A0D8400C0C8BE /* NSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArray.m; sourceTree = "<group>"; };
-		F0968EA517724DE40066686F /* NSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTimer.h; sourceTree = "<group>"; };
-		F0968EA617724DE40066686F /* NSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTimer.m; sourceTree = "<group>"; };
-		F0ADD3C2176A03EF003C4A9A /* libRRiOS7Backport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRRiOS7Backport.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0ADD3C2176A03EF003C4A9A /* libRRiOS7BackportGameKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRRiOS7BackportGameKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0ADD3C5176A03EF003C4A9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		F0ADD3C9176A03EF003C4A9A /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		F0ADD3D8176A04E3003C4A9A /* UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView.h; sourceTree = "<group>"; };
-		F0ADD3D9176A04E3003C4A9A /* UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView.m; sourceTree = "<group>"; };
 		F0ADD3DB176A0547003C4A9A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F0C7C096177DDFEA00AEB524 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F0C7C098177DDFEF00AEB524 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F0DB329F177B1A7500E7610F /* NSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSData.h; sourceTree = "<group>"; };
-		F0DB32A0177B1A7500E7610F /* NSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSData.m; sourceTree = "<group>"; };
 		F0E2FF9217807BBB0070D2B8 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		F0E2FF9517807BEE0070D2B8 /* GKLocalPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKLocalPlayer.h; sourceTree = "<group>"; };
-		F0E2FF9617807BEE0070D2B8 /* GKLocalPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKLocalPlayer.m; sourceTree = "<group>"; };
 		F0E612B21771F08E0089DD9D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		F0E612CE1771F1A40089DD9D /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E612D81771F1A40089DD9D /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		F0F156D117E75A9400FED38A /* GKLocalPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKLocalPlayer.h; sourceTree = "<group>"; };
+		F0F156D217E75A9400FED38A /* GKLocalPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKLocalPlayer.m; sourceTree = "<group>"; };
+		F0F156D917E75AF700FED38A /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = ../../RRiOS7BackportUIKit/RRiOS7BackportUIKit/Prefix.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0E2FF9417807BC10070D2B8 /* GameKit.framework in Frameworks */,
-				F0C7C09C177DE0E900AEB524 /* libRRiOS7Backport.a in Frameworks */,
+				F0C7C09C177DE0E900AEB524 /* libRRiOS7BackportGameKit.a in Frameworks */,
 				F0C7C09A177DE00000AEB524 /* CoreGraphics.framework in Frameworks */,
 				F0E612CF1771F1A40089DD9D /* SenTestingKit.framework in Frameworks */,
 				F0E612D11771F1A40089DD9D /* UIKit.framework in Frameworks */,
@@ -107,23 +91,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F01E1BFE176A0D7A00C0C8BE /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				F01E1BFF176A0D8400C0C8BE /* NSArray.h */,
-				F01E1C00176A0D8400C0C8BE /* NSArray.m */,
-				F0968EA517724DE40066686F /* NSTimer.h */,
-				F0968EA617724DE40066686F /* NSTimer.m */,
-				F0DB329F177B1A7500E7610F /* NSData.h */,
-				F0DB32A0177B1A7500E7610F /* NSData.m */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
 		F0ADD3B9176A03EF003C4A9A = {
 			isa = PBXGroup;
 			children = (
-				F0ADD3C7176A03EF003C4A9A /* RRiOS7Backport */,
+				F0ADD3C7176A03EF003C4A9A /* RRiOS7BackportGameKit */,
 				F0E612D21771F1A40089DD9D /* Tests */,
 				F0ADD3C4176A03EF003C4A9A /* Frameworks */,
 				F0ADD3C3176A03EF003C4A9A /* Products */,
@@ -133,7 +104,7 @@
 		F0ADD3C3176A03EF003C4A9A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F0ADD3C2176A03EF003C4A9A /* libRRiOS7Backport.a */,
+				F0ADD3C2176A03EF003C4A9A /* libRRiOS7BackportGameKit.a */,
 				F0E612CE1771F1A40089DD9D /* Tests.octest */,
 			);
 			name = Products;
@@ -152,41 +123,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F0ADD3C7176A03EF003C4A9A /* RRiOS7Backport */ = {
+		F0ADD3C7176A03EF003C4A9A /* RRiOS7BackportGameKit */ = {
 			isa = PBXGroup;
 			children = (
-				F01E1BFE176A0D7A00C0C8BE /* Foundation */,
-				F0E2FF9117807B8C0070D2B8 /* GameKit */,
-				F0ADD3D7176A0489003C4A9A /* UIKit */,
-				F0ADD3C8176A03EF003C4A9A /* Supporting Files */,
+				F0F156D117E75A9400FED38A /* GKLocalPlayer.h */,
+				F0F156D217E75A9400FED38A /* GKLocalPlayer.m */,
+				F0F156DA17E75AFA00FED38A /* Supporting Files */,
 			);
-			path = RRiOS7Backport;
-			sourceTree = "<group>";
-		};
-		F0ADD3C8176A03EF003C4A9A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				F0ADD3C9176A03EF003C4A9A /* Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F0ADD3D7176A0489003C4A9A /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				F0ADD3D8176A04E3003C4A9A /* UIView.h */,
-				F0ADD3D9176A04E3003C4A9A /* UIView.m */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		F0E2FF9117807B8C0070D2B8 /* GameKit */ = {
-			isa = PBXGroup;
-			children = (
-				F0E2FF9517807BEE0070D2B8 /* GKLocalPlayer.h */,
-				F0E2FF9617807BEE0070D2B8 /* GKLocalPlayer.m */,
-			);
-			path = GameKit;
+			path = RRiOS7BackportGameKit;
 			sourceTree = "<group>";
 		};
 		F0E612D21771F1A40089DD9D /* Tests */ = {
@@ -197,12 +141,20 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		F0F156DA17E75AFA00FED38A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F0F156D917E75AF700FED38A /* Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F0ADD3C1176A03EF003C4A9A /* RRiOS7Backport */ = {
+		F0ADD3C1176A03EF003C4A9A /* RRiOS7BackportGameKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F0ADD3D0176A03EF003C4A9A /* Build configuration list for PBXNativeTarget "RRiOS7Backport" */;
+			buildConfigurationList = F0ADD3D0176A03EF003C4A9A /* Build configuration list for PBXNativeTarget "RRiOS7BackportGameKit" */;
 			buildPhases = (
 				F0ADD3BE176A03EF003C4A9A /* Sources */,
 				F0ADD3BF176A03EF003C4A9A /* Frameworks */,
@@ -212,9 +164,9 @@
 			);
 			dependencies = (
 			);
-			name = RRiOS7Backport;
-			productName = RRiOS7Backport;
-			productReference = F0ADD3C2176A03EF003C4A9A /* libRRiOS7Backport.a */;
+			name = RRiOS7BackportGameKit;
+			productName = RRiOS7BackportGameKit;
+			productReference = F0ADD3C2176A03EF003C4A9A /* libRRiOS7BackportGameKit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		F0E612CD1771F1A40089DD9D /* Tests */ = {
@@ -249,7 +201,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F0ADD3BD176A03EF003C4A9A /* Build configuration list for PBXProject "RRiOS7Backport" */;
+			buildConfigurationList = F0ADD3BD176A03EF003C4A9A /* Build configuration list for PBXProject "RRiOS7BackportGameKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -261,7 +213,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F0ADD3C1176A03EF003C4A9A /* RRiOS7Backport */,
+				F0ADD3C1176A03EF003C4A9A /* RRiOS7BackportGameKit */,
 				F0E612CD1771F1A40089DD9D /* Tests */,
 			);
 		};
@@ -282,11 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0968EA717724DE40066686F /* NSTimer.m in Sources */,
-				F0ADD3DA176A04E3003C4A9A /* UIView.m in Sources */,
-				F0DB32A1177B1A7500E7610F /* NSData.m in Sources */,
-				F0E2FF9717807BEE0070D2B8 /* GKLocalPlayer.m in Sources */,
-				F01E1C01176A0D8400C0C8BE /* NSArray.m in Sources */,
+				F0F156D317E75A9400FED38A /* GKLocalPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,11 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0E2FF9817807BEE0070D2B8 /* GKLocalPlayer.m in Sources */,
-				F0ECE91517720A5000529AC0 /* NSArray.m in Sources */,
-				F0968EA817724DE40066686F /* NSTimer.m in Sources */,
-				F0DB32A2177B1A7500E7610F /* NSData.m in Sources */,
-				F0ECE91617720A5000529AC0 /* UIView.m in Sources */,
+				F0F156D417E75A9400FED38A /* GKLocalPlayer.m in Sources */,
 				F0E612D91771F1A40089DD9D /* Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +252,7 @@
 /* Begin PBXTargetDependency section */
 		F0E612DC1771F1A40089DD9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F0ADD3C1176A03EF003C4A9A /* RRiOS7Backport */;
+			target = F0ADD3C1176A03EF003C4A9A /* RRiOS7BackportGameKit */;
 			targetProxy = F0E612DB1771F1A40089DD9D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -360,7 +304,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LLVM_VECTORIZE_LOOPS = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -409,7 +353,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LLVM_VECTORIZE_LOOPS = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -420,9 +364,9 @@
 		F0ADD3D1176A03EF003C4A9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DSTROOT = /tmp/RRiOS7Backport.dst;
+				DSTROOT = /tmp/RRiOS7BackportGameKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = RRiOS7Backport/Prefix.pch;
+				GCC_PREFIX_HEADER = RRiOS7BackportGameKit/Prefix.pch;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -432,9 +376,9 @@
 		F0ADD3D2176A03EF003C4A9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DSTROOT = /tmp/RRiOS7Backport.dst;
+				DSTROOT = /tmp/RRiOS7BackportGameKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = RRiOS7Backport/Prefix.pch;
+				GCC_PREFIX_HEADER = RRiOS7BackportGameKit/Prefix.pch;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -453,7 +397,7 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = RRiOS7Backport/Prefix.pch;
+				GCC_PREFIX_HEADER = RRiOS7BackportGameKit/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -479,7 +423,7 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = RRiOS7Backport/Prefix.pch;
+				GCC_PREFIX_HEADER = RRiOS7BackportGameKit/Prefix.pch;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
@@ -491,7 +435,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F0ADD3BD176A03EF003C4A9A /* Build configuration list for PBXProject "RRiOS7Backport" */ = {
+		F0ADD3BD176A03EF003C4A9A /* Build configuration list for PBXProject "RRiOS7BackportGameKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F0ADD3CE176A03EF003C4A9A /* Debug */,
@@ -500,7 +444,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F0ADD3D0176A03EF003C4A9A /* Build configuration list for PBXNativeTarget "RRiOS7Backport" */ = {
+		F0ADD3D0176A03EF003C4A9A /* Build configuration list for PBXNativeTarget "RRiOS7BackportGameKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F0ADD3D1176A03EF003C4A9A /* Debug */,
