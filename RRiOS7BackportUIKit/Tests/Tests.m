@@ -108,3 +108,24 @@
 
 
 @end
+
+
+@implementation Tests (UITableView)
+
+
+- (void)testPerformWithoutAnimation {
+    
+    // Test if method exists
+    STAssertTrue([UITableView instancesRespondToSelector:@selector(estimatedRowHeight)], @"missing +[UITableView estimatedRowHeight]");
+    STAssertTrue([UITableView instancesRespondToSelector:@selector(setEstimatedRowHeight:)], @"missing +[UITableView setEstimatedRowHeight:]");
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero];
+    [tableView setEstimatedRowHeight:10.0f];
+
+    // Test if method returns correct value
+    STAssertTrue(tableView.estimatedRowHeight == 10.0f, @"-[UITableView estimatedRowHeight] returned unexpected value");
+    
+}
+
+
+@end

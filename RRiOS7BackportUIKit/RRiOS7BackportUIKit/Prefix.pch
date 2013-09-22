@@ -39,6 +39,7 @@
     #import <UIKit/UIKit.h>
 
     #import "UIView.h"
+    #import "UITableView.h"
 #endif
 
 

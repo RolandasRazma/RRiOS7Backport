@@ -18,6 +18,8 @@
 		F0E612D01771F1A40089DD9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ADD3C5176A03EF003C4A9A /* Foundation.framework */; };
 		F0E612D11771F1A40089DD9D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ADD3DB176A0547003C4A9A /* UIKit.framework */; };
 		F0E612D91771F1A40089DD9D /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E612D81771F1A40089DD9D /* Tests.m */; };
+		F0E63BE117EED5C50065259B /* UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E63BE017EED5C50065259B /* UITableView.m */; };
+		F0E63BE217EED5C50065259B /* UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E63BE017EED5C50065259B /* UITableView.m */; };
 		F0F156D717E75AA400FED38A /* UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F156D617E75AA400FED38A /* UIView.m */; };
 		F0F156D817E75AA400FED38A /* UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F156D617E75AA400FED38A /* UIView.m */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,8 @@
 		F0E612B21771F08E0089DD9D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		F0E612CE1771F1A40089DD9D /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E612D81771F1A40089DD9D /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		F0E63BDF17EED5C50065259B /* UITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableView.h; sourceTree = "<group>"; };
+		F0E63BE017EED5C50065259B /* UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableView.m; sourceTree = "<group>"; };
 		F0F156D517E75AA400FED38A /* UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView.h; sourceTree = "<group>"; };
 		F0F156D617E75AA400FED38A /* UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +126,8 @@
 			children = (
 				F0F156D517E75AA400FED38A /* UIView.h */,
 				F0F156D617E75AA400FED38A /* UIView.m */,
+				F0E63BDF17EED5C50065259B /* UITableView.h */,
+				F0E63BE017EED5C50065259B /* UITableView.m */,
 				F0ADD3C8176A03EF003C4A9A /* Supporting Files */,
 			);
 			path = RRiOS7BackportUIKit;
@@ -229,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0F156D717E75AA400FED38A /* UIView.m in Sources */,
+				F0E63BE117EED5C50065259B /* UITableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0E612D91771F1A40089DD9D /* Tests.m in Sources */,
+				F0E63BE217EED5C50065259B /* UITableView.m in Sources */,
 				F0F156D817E75AA400FED38A /* UIView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
