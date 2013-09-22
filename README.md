@@ -16,76 +16,80 @@ Add project as library, setup `Build Phases`, add `-ObjC` to `Other Linker Flags
 
 ### Current backports table
 <table>
-
+  <!-- NSArray -->
   <tr>
-    <th colspan="2"><a href="https://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/NSArray.html">NSArray</a></th>
+    <th colspan="2"><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/NSArray.html">NSArray</a></th>
   </tr>
   <tr>
-    <td><a href="">-[NSArray firstObject]</a></td>
+    <td><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/NSArray.html#//apple_ref/occ/instm/NSArray/firstObject">-[NSArray firstObject]</a></td>
     <td style="background-color: green;">Done.</td>
   </tr>
   
+  <!-- UIView -->
   <tr>
-    <th colspan="2"><a href="https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIView_Class/UIView/UIView.html">UIView</a></th>
+    <th colspan="2"><a href="https://developer.apple.com/library/ios/documentation/uikit/reference/uiview_class/UIView/UIView.html">UIView</a></th>
   </tr>
   <tr>
-    <td><a href="">+[UIView performWithoutAnimation:]</a></td>
+    <td><a href="https://developer.apple.com/library/ios/documentation/uikit/reference/uiview_class/UIView/UIView.html#//apple_ref/occ/clm/UIView/performWithoutAnimation:">+[UIView performWithoutAnimation:]</a></td>
     <td style="background-color: green;">Done.</td>
   </tr>
   <tr>
-    <td><a href="">-[UIView drawViewHierarchyInRect:]</a></td>
+    <td><a href="https://developer.apple.com/library/ios/documentation/uikit/reference/uiview_class/UIView/UIView.html#//apple_ref/occ/instm/UIView/drawViewHierarchyInRect:afterScreenUpdates:">-[UIView drawViewHierarchyInRect:afterScreenUpdates:]</a></td>
     <td style="background-color: green;">Done.</td>
   </tr>
   
+  <!-- NSTimer -->
   <tr>
-    <th colspan="2"><a href="https://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Classes/NSTimer_Class/Reference/NSTimer.html">NSTimer</a></th>
+    <th colspan="2"><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSTimer_Class/Reference/NSTimer.html">NSTimer</a></th>
   </tr>
   <tr>
-    <td><a href="">-[NSTimer tolerance]</a></td>
+    <td><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSTimer_Class/Reference/NSTimer.html#//apple_ref/occ/instm/NSTimer/tolerance">-[NSTimer tolerance]</a></td>
     <td style="background-color: green;">Done.</td>
   </tr>
   <tr>
-    <td><a href="">-[NSTimer setTolerance:]</a></td>
-    <td style="background-color: green;">Done.</td>
-  </tr>
-
-  <tr>
-    <th colspan="2"><a href="https://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Classes/NSData_Class/Reference/Reference.html">NSData</a></th>
-  </tr>
-  <tr>
-    <td><a href="">-[NSData initWithBase64EncodedString:options:]</a></td>
-    <td style="background-color: green;">Done.</td>
-  </tr>
-  <tr>
-    <td><a href="">-[NSData base64EncodedStringWithOptions:]</a></td>
-    <td style="background-color: green;">Done.</td>
-  </tr>
-  <tr>
-    <td><a href="">-[NSData initWithBase64EncodedData:options:]</a></td>
-    <td style="background-color: green;">Done.</td>
-  </tr>
-  <tr>
-    <td><a href="">-[NSData base64EncodedDataWithOptions:]</a></td>
+    <td><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSTimer_Class/Reference/NSTimer.html#//apple_ref/occ/instm/NSTimer/setTolerance:">-[NSTimer setTolerance:]</a></td>
     <td style="background-color: green;">Done.</td>
   </tr>
 
+  <!-- NSData -->
   <tr>
-    <th colspan="2"><a href="https://developer.apple.com/library/ios/#documentation/GameKit/Reference/GKLocalPlayer_Ref/Reference/Reference.html">GKLocalPlayer</a></th>
+    <th colspan="2"><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSData_Class/Reference/Reference.html">NSData</a></th>
   </tr>
   <tr>
-    <td><a href="">-[GKLocalPlayer registerListener:]</a></td>
+    <td><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSData_Class/Reference/Reference.html#//apple_ref/occ/instm/NSData/initWithBase64EncodedString:options:">-[NSData initWithBase64EncodedString:options:]</a></td>
     <td style="background-color: green;">Done.</td>
   </tr>
   <tr>
-    <td><a href="">-[GKLocalPlayer unregisterListener:]</a></td>
+    <td><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSData_Class/Reference/Reference.html#//apple_ref/occ/instm/NSData/base64EncodedStringWithOptions:">-[NSData base64EncodedStringWithOptions:]</a></td>
     <td style="background-color: green;">Done.</td>
   </tr>
   <tr>
-    <td><a href="">-[GKLocalPlayer unregisterAllListeners]</a></td>
+    <td><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSData_Class/Reference/Reference.html#//apple_ref/occ/instm/NSData/initWithBase64EncodedData:options:">-[NSData initWithBase64EncodedData:options:]</a></td>
+    <td style="background-color: green;">Done.</td>
+  </tr>
+  <tr>
+    <td><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSData_Class/Reference/Reference.html#//apple_ref/occ/instm/NSData/base64EncodedDataWithOptions:">-[NSData base64EncodedDataWithOptions:]</a></td>
+    <td style="background-color: green;">Done.</td>
+  </tr>
+
+  <!-- GKLocalPlayer -->
+  <tr>
+    <th colspan="2"><a href="https://developer.apple.com/library/ios/documentation/GameKit/Reference/GKLocalPlayer_Ref/Reference/Reference.html">GKLocalPlayer</a></th>
+  </tr>
+  <tr>
+    <td><a href="https://developer.apple.com/library/ios/documentation/GameKit/Reference/GKLocalPlayer_Ref/Reference/Reference.html#//apple_ref/occ/instm/GKLocalPlayer/registerListener:">-[GKLocalPlayer registerListener:]</a></td>
+    <td style="background-color: green;">Done.</td>
+  </tr>
+  <tr>
+    <td><a href="https://developer.apple.com/library/ios/documentation/GameKit/Reference/GKLocalPlayer_Ref/Reference/Reference.html#//apple_ref/occ/instm/GKLocalPlayer/unregisterListener:">-[GKLocalPlayer unregisterListener:]</a></td>
+    <td style="background-color: green;">Done.</td>
+  </tr>
+  <tr>
+    <td><a href="https://developer.apple.com/library/ios/documentation/GameKit/Reference/GKLocalPlayer_Ref/Reference/Reference.html#//apple_ref/occ/instm/GKLocalPlayer/unregisterAllListeners">-[GKLocalPlayer unregisterAllListeners]</a></td>
     <td style="background-color: green;">Done.</td>
   </tr>
 
 </table>
 
 ### ContainerView
-If you supporting iOS5 check out [RRContainerView](https://github.com/RolandasRazma/RRContainerView) and [RRBaseInternationalization](https://github.com/RolandasRazma/RRBaseInternationalization)
+If you supporting `iOS5` check out [RRContainerView](https://github.com/RolandasRazma/RRContainerView) and [RRBaseInternationalization](https://github.com/RolandasRazma/RRBaseInternationalization)
