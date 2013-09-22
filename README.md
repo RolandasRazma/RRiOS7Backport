@@ -35,7 +35,16 @@ Add project as library, setup `Build Phases`, add `-ObjC` to `Other Linker Flags
   </tr>
   <tr>
     <td><a href="https://developer.apple.com/library/ios/documentation/uikit/reference/uiview_class/UIView/UIView.html#//apple_ref/occ/instm/UIView/drawViewHierarchyInRect:afterScreenUpdates:">-[UIView drawViewHierarchyInRect:afterScreenUpdates:]</a></td>
-    <td style="background-color: green;">Done.</td>
+    <td style="background-color: yellow;">Done.</td>
+  </tr>
+  
+  <!-- UITableView -->
+  <tr>
+      <th colspan="2"><a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableView_Class/Reference/Reference.html">UITableView</a></th>
+  </tr>
+  <tr>
+      <td><a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableView_Class/Reference/Reference.html#//apple_ref/occ/instp/UITableView/estimatedRowHeight">-[UITableView estimatedRowHeight]</a></td>
+      <td style="background-color: green;">Done.</td>
   </tr>
   
   <!-- NSTimer -->
