@@ -36,8 +36,8 @@
 
 + (void)performWithoutAnimation:(void (^)(void))actionsWithoutAnimation;
 
-// Use this method to render a snapshot of the view hierarchy into the current context. Returns NO if the snapshot is missing image data, YES if the snapshot is complete.
-- (BOOL)drawViewHierarchyInRect:(CGRect)rect;
+// Use this method to render a snapshot of the view hierarchy into the current context. Returns NO if the snapshot is missing image data, YES if the snapshot is complete. Calling this method from layoutSubviews while the current transaction is committing will capture what is currently displayed regardless if afterUpdates is YES.
+- (BOOL)drawViewHierarchyInRect:(CGRect)rect afterScreenUpdates:(BOOL)afterUpdates;
 
 #endif
 

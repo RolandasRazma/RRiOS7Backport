@@ -44,7 +44,7 @@
     }
 
     if( ![UIView instancesRespondToSelector:@selector(drawViewHierarchyInRect:)] ){
-        RR_ADD_INSTANCE_METHOD([UIView class], @selector(drawViewHierarchyInRect:), @selector(rr_drawViewHierarchyInRect:));
+        RR_ADD_INSTANCE_METHOD([UIView class], @selector(drawViewHierarchyInRect:afterScreenUpdates:), @selector(rr_drawViewHierarchyInRect:afterScreenUpdates:));
     }
     
 }
@@ -62,7 +62,7 @@
 }
 
 
-- (BOOL)rr_drawViewHierarchyInRect:(CGRect)rect {
+- (BOOL)drawViewHierarchyInRect:(CGRect)rect afterScreenUpdates:(BOOL)afterUpdates {
     #warning as stated by https://github.com/RolandasRazma/RRiOS7Backport/issues/1 this method doesn't work in all situations
     
     CGContextRef contextRef = UIGraphicsGetCurrentContext();

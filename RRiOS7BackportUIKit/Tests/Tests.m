@@ -102,7 +102,7 @@
 - (void)testDrawViewHierarchyInRect {
     
     // Test if method exists
-    STAssertTrue([UIView instancesRespondToSelector:@selector(drawViewHierarchyInRect:)], @"missing -[UIView drawViewHierarchyInRect:]");
+    STAssertTrue([UIView instancesRespondToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)], @"missing -[UIView drawViewHierarchyInRect:afterScreenUpdates:]");
 
 }
 
