@@ -56,9 +56,9 @@
 		F0E612B21771F08E0089DD9D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		F0E612CE1771F1A40089DD9D /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E612D81771F1A40089DD9D /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		F0E63BE317EEDCDB0065259B /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		F0F156D117E75A9400FED38A /* GKLocalPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKLocalPlayer.h; sourceTree = "<group>"; };
 		F0F156D217E75A9400FED38A /* GKLocalPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKLocalPlayer.m; sourceTree = "<group>"; };
-		F0F156D917E75AF700FED38A /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = ../../RRiOS7BackportUIKit/RRiOS7BackportUIKit/Prefix.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +144,7 @@
 		F0F156DA17E75AFA00FED38A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F0F156D917E75AF700FED38A /* Prefix.pch */,
+				F0E63BE317EEDCDB0065259B /* Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
