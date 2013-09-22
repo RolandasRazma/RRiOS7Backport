@@ -113,7 +113,7 @@
 @implementation Tests (UITableView)
 
 
-- (void)testPerformWithoutAnimation {
+- (void)testEstimatedRowHeight {
     
     // Test if method exists
     STAssertTrue([UITableView instancesRespondToSelector:@selector(estimatedRowHeight)], @"missing +[UITableView estimatedRowHeight]");
