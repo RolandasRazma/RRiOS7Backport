@@ -44,7 +44,16 @@ Add project as library, setup `Build Phases`, add `-ObjC` to `Other Linker Flags
   </tr>
   <tr>
       <td><a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableView_Class/Reference/Reference.html#//apple_ref/occ/instp/UITableView/estimatedRowHeight">-[UITableView estimatedRowHeight]</a></td>
-      <td style="background-color: green;">Done.</td>
+      <td style="background-color: yellow;">Done.</td>
+  </tr>
+  
+  <!-- UINavigationController -->
+  <tr>
+      <th colspan="2"><a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationController_Class/Reference/Reference.html">UINavigationController</a></th>
+  </tr>
+  <tr>
+      <td><a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationController_Class/Reference/Reference.html#//apple_ref/occ/instp/UINavigationController/interactivePopGestureRecognizer">-[UINavigationController interactivePopGestureRecognizer]</a></td>
+      <td style="background-color: yellow;">Done.</td>
   </tr>
   
   <!-- NSTimer -->
@@ -53,11 +62,11 @@ Add project as library, setup `Build Phases`, add `-ObjC` to `Other Linker Flags
   </tr>
   <tr>
     <td><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSTimer_Class/Reference/NSTimer.html#//apple_ref/occ/instm/NSTimer/tolerance">-[NSTimer tolerance]</a></td>
-    <td style="background-color: green;">Done.</td>
+    <td style="background-color: yellow;">Done.</td>
   </tr>
   <tr>
     <td><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSTimer_Class/Reference/NSTimer.html#//apple_ref/occ/instm/NSTimer/setTolerance:">-[NSTimer setTolerance:]</a></td>
-    <td style="background-color: green;">Done.</td>
+    <td style="background-color: yellow;">Done.</td>
   </tr>
 
   <!-- NSData -->

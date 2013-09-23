@@ -1,8 +1,8 @@
 //
-//  UITableView.m
-//  RRiOS7Backport
+//  UINavigationController.m
+//  RRiOS7BackportUIKit
 //
-//  Created by Rolandas Razma on 17/09/2013.
+//  Created by Rolandas Razma on 23/09/2013.
 //  Copyright (c) 2013 Rolandas Razma.
 //
 //
@@ -27,33 +27,27 @@
 //  THE SOFTWARE.
 //
 
-#import "UITableView.h"
+#import "UINavigationController.h"
 
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wincomplete-implementation"
-@implementation UITableView (RRiOS7Backport)
+@implementation UINavigationController (RRiOS7Backport)
 
 
 + (void)load {
     
-    if( ![UITableView instancesRespondToSelector:@selector(estimatedRowHeight)] ){
-        RR_ADD_INSTANCE_METHOD([UITableView class], @selector(setEstimatedRowHeight:), @selector(rr_setEstimatedRowHeight:));
-        RR_ADD_INSTANCE_METHOD([UITableView class], @selector(estimatedRowHeight),     @selector(rr_estimatedRowHeight));
+    if( ![UINavigationController instancesRespondToSelector:@selector(interactivePopGestureRecognizer)] ){
+        RR_ADD_INSTANCE_METHOD([UINavigationController class], @selector(interactivePopGestureRecognizer), @selector(rr_interactivePopGestureRecognizer));
     }
     
 }
 
 
-- (CGFloat)rr_estimatedRowHeight {
-    return [objc_getAssociatedObject(self, @selector(estimatedRowHeight)) floatValue];
+- (UIGestureRecognizer *)rr_interactivePopGestureRecognizer {
+    return nil;
 }
 
-
-- (void)rr_setEstimatedRowHeight:(CGFloat)estimatedRowHeight {
-    objc_setAssociatedObject(self, @selector(estimatedRowHeight), @(estimatedRowHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-
+   
 @end
 #pragma clang diagnostic pop

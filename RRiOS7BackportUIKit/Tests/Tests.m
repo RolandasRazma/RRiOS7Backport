@@ -129,3 +129,17 @@
 
 
 @end
+
+
+@implementation Tests (UINavigationController)
+
+
+- (void)testInteractivePopGestureRecognizer {
+    
+    // Test if method exists
+    STAssertTrue([UINavigationController instancesRespondToSelector:@selector(interactivePopGestureRecognizer)], @"missing +[UINavigationController interactivePopGestureRecognizer]");
+    
+}
+
+
+@end

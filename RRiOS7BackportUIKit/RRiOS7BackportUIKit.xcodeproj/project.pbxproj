@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F03DDF5917F082E500BBD0FF /* UINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F03DDF5817F082E500BBD0FF /* UINavigationController.m */; };
+		F03DDF5A17F082E500BBD0FF /* UINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F03DDF5817F082E500BBD0FF /* UINavigationController.m */; };
 		F0ADD3C6176A03EF003C4A9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ADD3C5176A03EF003C4A9A /* Foundation.framework */; };
 		F0ADD3DC176A0547003C4A9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ADD3DB176A0547003C4A9A /* UIKit.framework */; };
 		F0C7C097177DDFEA00AEB524 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C7C096177DDFEA00AEB524 /* QuartzCore.framework */; };
@@ -47,6 +49,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F03DDF5717F082E500BBD0FF /* UINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationController.h; sourceTree = "<group>"; };
+		F03DDF5817F082E500BBD0FF /* UINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationController.m; sourceTree = "<group>"; };
 		F0ADD3C2176A03EF003C4A9A /* libRRiOS7BackportUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRRiOS7BackportUIKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0ADD3C5176A03EF003C4A9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F0ADD3C9176A03EF003C4A9A /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				F0F156D617E75AA400FED38A /* UIView.m */,
 				F0E63BDF17EED5C50065259B /* UITableView.h */,
 				F0E63BE017EED5C50065259B /* UITableView.m */,
+				F03DDF5717F082E500BBD0FF /* UINavigationController.h */,
+				F03DDF5817F082E500BBD0FF /* UINavigationController.m */,
 				F0ADD3C8176A03EF003C4A9A /* Supporting Files */,
 			);
 			path = RRiOS7BackportUIKit;
@@ -236,6 +242,7 @@
 			files = (
 				F0F156D717E75AA400FED38A /* UIView.m in Sources */,
 				F0E63BE117EED5C50065259B /* UITableView.m in Sources */,
+				F03DDF5917F082E500BBD0FF /* UINavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0E612D91771F1A40089DD9D /* Tests.m in Sources */,
+				F03DDF5A17F082E500BBD0FF /* UINavigationController.m in Sources */,
 				F0E63BE217EED5C50065259B /* UITableView.m in Sources */,
 				F0F156D817E75AA400FED38A /* UIView.m in Sources */,
 			);

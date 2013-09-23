@@ -1,6 +1,6 @@
 //
 //  UITableView.h
-//  RRiOS7BackportUIKit
+//  RRiOS7Backport
 //
 //  Created by Rolandas Razma on 17/09/2013.
 //  Copyright (c) 2013 Rolandas Razma.

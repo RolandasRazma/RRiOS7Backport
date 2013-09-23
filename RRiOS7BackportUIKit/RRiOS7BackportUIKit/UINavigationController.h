@@ -1,8 +1,8 @@
 //
-//  UITableView.m
-//  RRiOS7Backport
+//  UINavigationController.h
+//  RRiOS7BackportUIKit
 //
-//  Created by Rolandas Razma on 17/09/2013.
+//  Created by Rolandas Razma on 23/09/2013.
 //  Copyright (c) 2013 Rolandas Razma.
 //
 //
@@ -27,33 +27,15 @@
 //  THE SOFTWARE.
 //
 
-#import "UITableView.h"
+#import <UIKit/UIKit.h>
 
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wincomplete-implementation"
-@implementation UITableView (RRiOS7Backport)
+@interface UINavigationController (RRiOS7Backport)
 
+#ifndef __IPHONE_7_0
 
-+ (void)load {
-    
-    if( ![UITableView instancesRespondToSelector:@selector(estimatedRowHeight)] ){
-        RR_ADD_INSTANCE_METHOD([UITableView class], @selector(setEstimatedRowHeight:), @selector(rr_setEstimatedRowHeight:));
-        RR_ADD_INSTANCE_METHOD([UITableView class], @selector(estimatedRowHeight),     @selector(rr_estimatedRowHeight));
-    }
-    
-}
+@property(nonatomic, readonly) UIGestureRecognizer *interactivePopGestureRecognizer;
 
-
-- (CGFloat)rr_estimatedRowHeight {
-    return [objc_getAssociatedObject(self, @selector(estimatedRowHeight)) floatValue];
-}
-
-
-- (void)rr_setEstimatedRowHeight:(CGFloat)estimatedRowHeight {
-    objc_setAssociatedObject(self, @selector(estimatedRowHeight), @(estimatedRowHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
+#endif
 
 @end
-#pragma clang diagnostic pop
