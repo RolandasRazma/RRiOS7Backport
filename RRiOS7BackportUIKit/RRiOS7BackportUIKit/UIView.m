@@ -62,7 +62,7 @@
 }
 
 
-- (BOOL)drawViewHierarchyInRect:(CGRect)rect afterScreenUpdates:(BOOL)afterUpdates {
+- (BOOL)rr_drawViewHierarchyInRect:(CGRect)rect afterScreenUpdates:(BOOL)afterUpdates {
     #warning as stated by https://github.com/RolandasRazma/RRiOS7Backport/issues/1 this method doesn't work in all situations
     
     CGContextRef contextRef = UIGraphicsGetCurrentContext();
