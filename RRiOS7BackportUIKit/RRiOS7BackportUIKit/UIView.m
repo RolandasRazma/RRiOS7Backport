@@ -43,7 +43,7 @@
         RR_ADD_CLASS_METHOD([UIView class], @selector(performWithoutAnimation:),    @selector(rr_performWithoutAnimation:));
     }
 
-    if( ![UIView instancesRespondToSelector:@selector(drawViewHierarchyInRect:)] ){
+    if( ![UIView instancesRespondToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)] ){
         RR_ADD_INSTANCE_METHOD([UIView class], @selector(drawViewHierarchyInRect:afterScreenUpdates:), @selector(rr_drawViewHierarchyInRect:afterScreenUpdates:));
     }
     
