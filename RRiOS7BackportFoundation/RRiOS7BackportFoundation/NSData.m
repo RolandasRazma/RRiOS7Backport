@@ -49,7 +49,7 @@
 }
 
 
-- (id)rr_initWithBase64EncodedString:(NSString *)base64String options:(NSDataBase64DecodingOptions)options {
+- (id)rr_initWithBase64EncodedString:(NSString *)base64String options:(NSDataBase64DecodingOptions)options __attribute((ns_returns_retained)) {
     return [self initWithBase64EncodedData: [base64String dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES]
                                    options: options];
 }
@@ -61,7 +61,7 @@
 }
 
 
-- (id)rr_initWithBase64EncodedData:(NSData *)base64Data options:(NSDataBase64DecodingOptions)options {
+- (id)rr_initWithBase64EncodedData:(NSData *)base64Data options:(NSDataBase64DecodingOptions)options __attribute((ns_returns_retained)) {
     
     const char lookup[] = {
         99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99,
@@ -106,7 +106,7 @@
     //truncate data to match actual output length
     outputData.length = outputLength;
     
-    return ((outputLength>0)?[NSData dataWithData:outputData]:nil);
+    return ((outputLength>0)?[self initWithData:outputData]:nil);
 }
 
 

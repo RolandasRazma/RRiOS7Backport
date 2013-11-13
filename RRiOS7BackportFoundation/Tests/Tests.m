@@ -114,7 +114,7 @@
     STAssertTrue([NSData instancesRespondToSelector:@selector(base64EncodedStringWithOptions:)],        @"missing -[NSData base64EncodedStringWithOptions:]");
     STAssertTrue([NSData instancesRespondToSelector:@selector(initWithBase64EncodedData:options:)],     @"missing -[NSData initWithBase64EncodedData:options:]");
     STAssertTrue([NSData instancesRespondToSelector:@selector(base64EncodedDataWithOptions:)],          @"missing -[NSData base64EncodedDataWithOptions:]");
-    
+
     
     // Test data from iOS7
     NSString *testString        = @"T汉字/漢字his\nis\tTest^&*()_\nS\rtring\tTest\nS\rtring\nThis\nis\tTesnThis\nis\tTest\nS\rtring\n";
@@ -143,6 +143,14 @@
     STAssertNotNil(decodedBase64d, @"failed -[NSData initWithBase64EncodedString:options:]");
     STAssertEqualObjects(decodedBase64d, testData, @"Decoded data not equal encoded one");
     STAssertEqualObjects(decodedBase64d, decodedBase64, @"Decoded data not equal encoded one");
+
+}
+
+
+- (void)testIssues4 {
+    
+    NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:@"RGFzIGlzdCBlaW4gVGVzdA==" options:0];
+    STAssertNotNil(decodedData, @"failed -[NSData initWithBase64EncodedString:options:]");
 
 }
 
