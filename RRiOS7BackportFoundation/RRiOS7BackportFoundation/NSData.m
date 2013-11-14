@@ -49,7 +49,7 @@
 }
 
 
-- (id)rr_initWithBase64EncodedString:(NSString *)base64String options:(NSDataBase64DecodingOptions)options {
+- (id)rr_initWithBase64EncodedString:(NSString *)base64String options:(NSDataBase64DecodingOptions)options __attribute__((objc_method_family(init))) {
     
     if ( base64String == nil || base64String.length < 1 ) {
         @throw([NSException exceptionWithName: NSInvalidArgumentException
@@ -68,8 +68,8 @@
 }
 
 
-- (id)rr_initWithBase64EncodedData:(NSData *)base64Data options:(NSDataBase64DecodingOptions)options {
-    
+- (id)rr_initWithBase64EncodedData:(NSData *)base64Data options:(NSDataBase64DecodingOptions)options __attribute__((objc_method_family(init))) {
+
     if ( base64Data == nil || base64Data.length < 1 ) {
         @throw([NSException exceptionWithName: NSInvalidArgumentException
                                        reason: [NSString stringWithFormat:@"nil data argument"]
