@@ -34,7 +34,7 @@
 
 #ifndef __IPHONE_7_0
 
-@property (nonatomic) CGFloat estimatedRowHeight
+@property (nonatomic) CGFloat estimatedRowHeight;
 
 #endif
 
