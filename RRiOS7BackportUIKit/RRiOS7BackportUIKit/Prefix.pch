@@ -41,6 +41,7 @@
     #import "UIView.h"
     #import "UITableView.h"
     #import "UINavigationController.h"
+    #import "UIActivity.h"
 #endif
 
 

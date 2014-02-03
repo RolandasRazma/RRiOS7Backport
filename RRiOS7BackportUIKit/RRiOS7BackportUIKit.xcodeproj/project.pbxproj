@@ -11,6 +11,7 @@
 		F03DDF5A17F082E500BBD0FF /* UINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F03DDF5817F082E500BBD0FF /* UINavigationController.m */; };
 		F0ADD3C6176A03EF003C4A9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ADD3C5176A03EF003C4A9A /* Foundation.framework */; };
 		F0ADD3DC176A0547003C4A9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ADD3DB176A0547003C4A9A /* UIKit.framework */; };
+		F0B64D85189F9C6E00C84A29 /* UIActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B64D84189F9C6E00C84A29 /* UIActivity.m */; };
 		F0C7C097177DDFEA00AEB524 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C7C096177DDFEA00AEB524 /* QuartzCore.framework */; };
 		F0C7C099177DDFEF00AEB524 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C7C098177DDFEF00AEB524 /* CoreGraphics.framework */; };
 		F0C7C09A177DE00000AEB524 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C7C098177DDFEF00AEB524 /* CoreGraphics.framework */; };
@@ -55,6 +56,8 @@
 		F0ADD3C5176A03EF003C4A9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F0ADD3C9176A03EF003C4A9A /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		F0ADD3DB176A0547003C4A9A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F0B64D83189F9C6E00C84A29 /* UIActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActivity.h; sourceTree = "<group>"; };
+		F0B64D84189F9C6E00C84A29 /* UIActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIActivity.m; sourceTree = "<group>"; };
 		F0C7C096177DDFEA00AEB524 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F0C7C098177DDFEF00AEB524 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F0E612B21771F08E0089DD9D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -128,6 +131,8 @@
 		F0ADD3C7176A03EF003C4A9A /* RRiOS7BackportUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				F0B64D83189F9C6E00C84A29 /* UIActivity.h */,
+				F0B64D84189F9C6E00C84A29 /* UIActivity.m */,
 				F0F156D517E75AA400FED38A /* UIView.h */,
 				F0F156D617E75AA400FED38A /* UIView.m */,
 				F0E63BDF17EED5C50065259B /* UITableView.h */,
@@ -242,6 +247,7 @@
 			files = (
 				F0F156D717E75AA400FED38A /* UIView.m in Sources */,
 				F0E63BE117EED5C50065259B /* UITableView.m in Sources */,
+				F0B64D85189F9C6E00C84A29 /* UIActivity.m in Sources */,
 				F03DDF5917F082E500BBD0FF /* UINavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
