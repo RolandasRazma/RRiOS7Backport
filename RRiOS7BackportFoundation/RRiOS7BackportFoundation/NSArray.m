@@ -35,5 +35,17 @@
 #pragma clang diagnostic ignored "-Wincomplete-implementation"
 @implementation NSArray (RRiOS7Backport)
 
++ (void)load {
+    if( ![NSArray instancesRespondToSelector:@selector(firstObject)] )
+    {
+        RR_ADD_INSTANCE_METHOD([NSArray class], @selector(firstObject), @selector(rr_firstObject));
+    }
+}
+
+
+- (id)rr_firstObject {
+    return ( self.count > 0 ) ? self[0] : nil;
+}
+
 @end
 #pragma clang diagnostic pop
