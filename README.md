@@ -113,4 +113,4 @@ Add project as library, setup `Build Phases`, add `-ObjC` to `Other Linker Flags
 If you supporting `iOS5` check out [RRContainerView](https://github.com/RolandasRazma/RRContainerView) and [RRBaseInternationalization](https://github.com/RolandasRazma/RRBaseInternationalization)
 
 ### iOS8 to iOS7 Backport
-If you moving looking for `iOS8` backport check out [RRiOS7Backport](https://github.com/RolandasRazma/RRiOS8Backport)
+If you moving looking for `iOS8` backport check out [RRiOS8Backport](https://github.com/RolandasRazma/RRiOS8Backport)
